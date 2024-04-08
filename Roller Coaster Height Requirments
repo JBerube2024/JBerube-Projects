@@ -25,7 +25,7 @@ int main()
         cout<<"You are tall enough to ride this roller coaster"<<'\n';
 
     } else {
-        cout<<"get the fuck out"<<'\n';
+        cout<<"You are to short to ride"<<'\n';
     }
 
     return 0;
