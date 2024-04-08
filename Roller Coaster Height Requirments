@@ -1,0 +1,32 @@
+/* Online C++ Compiler and Editor */
+#include <iostream>//This library provides functionalities for input and output operations, like printing to the console and reading user input.
+
+#include <chrono>//This library allows for measuring time durations and points in time.
+#include <thread>//This library allows for chrono to work
+using namespace std;
+
+int main()
+{
+
+    cout<<"Hello welcome to Jacksons roller coaster"<<'\n';
+
+    std::this_thread::sleep_for(std::chrono::seconds(3));// Pause the program execution for 3 seconds.
+
+    cout<<"In order to ride you must be 4 feet or 48 inches tall to ride"<<'\n';
+
+    std::this_thread::sleep_for(std::chrono::seconds(2));// Pause the program execution for 2 seconds.
+
+    cout << "Please enter your height in inches: ";
+    int x {};
+    cin>> x;
+
+
+    if (x >= 48) {
+        cout<<"You are tall enough to ride this roller coaster"<<'\n';
+
+    } else {
+        cout<<"get the fuck out"<<'\n';
+    }
+
+    return 0;
+}
