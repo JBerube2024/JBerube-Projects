@@ -1,0 +1,19 @@
+/* Online C++ Compiler and Editor */
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    cout << "Enter a number 0-9: ";
+    int x {};
+    cin>>x;
+
+    if (x == 2 || x == 3 || x == 5 || x == 7)// We can use this when trying to do something like if (x = 2,3,5 or 7)
+    
+        cout << "The digit is prime\n";
+    else 
+        cout << "The digit is not prime";
+
+    return 0;
+}
