@@ -1,0 +1,136 @@
+#include <iostream>
+#include <chrono>//This library allows for measuring time durations and points in time.
+#include <thread>//This library allows for chrono to work
+using namespace std;
+
+/* The purpose for the code below is to ask the user for two integers and add them together */
+
+//However we need to split the commands into two functions//
+
+
+char getcompmove()//Char is used to represent a single character we use this because we want the function to return a single character representing the computer's move
+
+{
+    int move;//This line declares a variable named move of type int, which will be used to store the randomly generated number.
+    srand(time(NULL)); //This line uses the current time to tell the computer to provide a new int when the time is different. Without this line we would get the same int every time.
+    move = rand() % 3; //This line generates a random number between 0 and 2 and stores it in the variable "move". rand() is a function that generates a random integer between 0 and 3%  and ensures that the result is between 0 and 2.
+  
+    //This line tell the computer, hey if the random number generator returns 0 than we will assign it to the letter p. Keep in mind this line is not fed the number it is fed move that is storing a number.
+     if (move == 0) { 
+        return 'P'; 
+    } 
+    else if (move == 1) { 
+        return 'S'; 
+    } 
+    return 'R'; 
+} 
+/* -These next lines tell the computyer that if the user inputsa a given letter he needs to assign it to a certain number
+    -The numbers were assigned to a certain outcome above*/
+int ans(char player, char compmove)
+{
+
+    if ( player == compmove){
+         return 0;
+         
+    }
+    
+    if (player == 'R' && compmove == 'P'){
+        /*For instance if the player types in R and the
+        computer types in P the computer reconzixes this
+        and says ok lets assign this to the number 1
+        -In this case the number 1 is assigned to a player 1
+        win*/
+        
+        return -1;
+    }   
+        
+    if (player == 'R' && compmove == 'S'){
+        return 1;
+    }
+    
+    if (player == 'P' && compmove == 'R'){
+        return 1;
+    }    
+        
+    if (player == 'P' && compmove == 'S'){
+        return -1;
+    }
+    
+    if (player == 'S' && compmove == 'P'){
+        return 1;
+    }    
+        
+    if (player == 'S' && compmove == 'R'){
+        return -1;
+    }
+    
+    return 0;
+     
+}
+
+int main()
+{
+  
+            /*Basic Text prompts before match*/
+  char player;
+    cout<<"Hello"<<'\n';
+    
+        std::this_thread::sleep_for(std::chrono::seconds(3));// Pause the program execution for 3 seconds.
+    
+    cout<<"lets play Rock,Paper,Scissors"<<'\n';
+    
+            std::this_thread::sleep_for(std::chrono::seconds(2));// Pause the program execution for 2 seconds.
+    cout<<"Enter R for ROCK, P for PAPER, and S "
+            "for SCISSOR"<<'\n';
+    
+            std::this_thread::sleep_for(std::chrono::seconds(2));// Pause the program execution for 2 seconds.
+
+    cout<<"Rock"<<'\n';
+     std::this_thread::sleep_for(std::chrono::seconds(1));//
+    cout<<"Paper"<<'\n';
+     std::this_thread::sleep_for(std::chrono::seconds(1));//
+    cout<<"Scissors"<<'\n';
+     std::this_thread::sleep_for(std::chrono::seconds(1));//
+    cout<<"Shoot"<<'\n';
+    
+        std::this_thread::sleep_for(std::chrono::seconds(1));// Pause the program execution for 1 seconds.
+ 
+ 
+    cout<<"Enter choice";//Asks for number
+    
+    while(1) { 
+        cin >> player; 
+        if (player == 'P' || player == 'R' || player == 'S') { 
+            break; 
+        } 
+        else { 
+            cout << "Please Enter A Valid Move." <<'\n'; 
+        } 
+    } 
+    
+    
+
+   char compmove = getcompmove(); //This line just makes these two mean the same thing.
+   
+   cout<<"The computer has chosen " << (compmove)<<'\n'; 
+   
+   int result = ans(player, compmove);
+   
+   if (result == 0){
+       cout<<"A Tie!! Please Play Again";
+   }
+   else if (result == 1){
+       cout<<"Congrats Player One on your Victory";
+   }
+   else {
+       cout<<"Sorry you have lost..The computer has won";
+   }
+    
+    return 0;
+      
+}
+//Things to keep in mind for future code
+
+
+/* You need to make sure all variables match up you will get error message like "main.cpp:59:31: error: ISO C++ forbids comparison between pointer and integer"*/
+//
