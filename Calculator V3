@@ -1,0 +1,74 @@
+//These are called libraries
+#include <iostream>//This library provides functionalities for input and output operations, like printing to the console and reading user input.
+
+#include <chrono>//This library allows for measuring time durations and points in time.
+#include <thread>//This library allows for chrono to work
+using namespace std;
+
+/* The purpose for the code below is to ask the user for an integer then ask them for a sign then followed by another integer. Using the three variables the computer will execute the users desired command */
+
+
+int main()
+{
+    cout<<"Hello welcome to Jacksons first program"<<'\n';
+
+    std::this_thread::sleep_for(std::chrono::seconds(3));// Pause the program execution for 3 seconds.
+
+    cout<<" A fully functioning basic calculator"<<'\n';
+
+    std::this_thread::sleep_for(std::chrono::seconds(2));// Pause the program execution for 2 seconds.
+
+    /* For these next lines the user will input a number and then a sign and then another number */
+    cout << "Please enter an integer: ";
+    int x {};
+    cin >> x;
+    //Using "String" allows us to input stuff other than numbers
+    cout << "Enter a sign: ";
+    string s;
+    cin >> s;
+
+    cout << "Enter an integer: ";
+    int y {};
+    cin >> y;
+
+    /* For these lines the computer will match the sign the user inputted to figure out which equation to use*/
+//If the user types "-" then the comp will use "x - y"
+//Also I implemented else if statements due to mutliple conditions
+    if (s == "-") {
+        cout<<"The answer is =  " << ( x - y)<<'\n';
+    } else if (s == "+") {
+        cout<<"The answer is =  " << ( x + y)<<'\n';
+    } else if (s == "*") {
+        cout<<"The answer is =  " << ( x * y)<<'\n';
+    } else if (s == "/") {
+        cout<<"The answer is =  " << ( x / y)<<'\n';
+    }
+
+    else {
+        cout<<"**!!Please enter a valid integer!!**";
+    }
+
+    return 0;
+}
+
+
+
+//This is what I had before I learned else and else if
+/*
+if (s == "-")
+        cout<<"The answer is =  " << ( x - y)<<'\n';
+
+
+    if (s == "+")
+        cout<<"The answer is =  " << ( x + y)<<'\n';
+
+
+
+    if (s == "*")
+        cout<<"The answer is =  " << ( x * y)<<'\n';
+
+
+    if (s == "/")
+        cout<<"The answer is =  " << ( x / y)<<'\n';
+    //This line basicaly is saying if none of the other qualities are fulfilled then we will run this line of code
+*/
