@@ -1,0 +1,76 @@
+#include <iostream>
+#include <chrono>//This library allows for measuring time durations and points in time.
+#include <thread>//This library allows for chrono to work
+
+using namespace std;
+
+char getRandomMove() {
+    int move;//This line declares a variable named move of type int, which will be used to store the randomly generated number.
+     //This line uses the current time to tell the computer to provide a new int when the time is different. Without this line we would get the same int every time.
+    srand(time(NULL));//This line uses the current time to tell the computer to provide a new int when the time is different. Without this line we would get the same int every time.
+    move = rand() % 8; // Generate a random number between 0 and 7
+    
+    
+     //These lines tell the computer, hey if the random number generator returns 0 than we will assign it to the following text.
+     
+    if (move == 0) { 
+        cout << "Outlook not so good"; 
+    } 
+    else if (move == 1) { 
+        cout << "Definitely yes"; 
+    } 
+    else if (move == 2) { 
+        cout << "Cannot predict now"; 
+    } 
+    else if (move == 3) { 
+        cout << "Maybe...but not too sure"; 
+    } 
+    else if (move == 4) { 
+        cout << "Don't count on it"; 
+    } 
+    else if (move == 5) { 
+        cout << "No...count your days"; 
+    } 
+    else if (move == 6) { 
+        cout << "It is better that you do not know"; 
+    } 
+    else if (move == 7) { 
+        cout << "It is better that you do not know"; 
+    }
+    
+    return ' '; // Return a default character, as the function is declared to return a char
+} 
+
+int main() {
+    // Initialize random seed
+
+    cout << "Hello" << '\n';
+     std::this_thread::sleep_for(std::chrono::seconds(1));// Pause the program execution for 3 seconds.
+     cout << "Welcome to Jacksons Fortune Teller" << '\n';
+     std::this_thread::sleep_for(std::chrono::seconds(1));
+    cout << "Let me read your fortune" << '\n';
+     std::this_thread::sleep_for(std::chrono::seconds(1));// Pause the program execution for 3 seconds.
+    cout << "Enter:"<< '\n';
+     std::this_thread::sleep_for(std::chrono::seconds(2));// Pause the program execution for 3 seconds.
+     cin.get(); // Wait for user to press Enter
+    cout << '\n'; // Add a newline after the Enter key press
+    
+    char randomMove = getRandomMove(); // Get the random move
+    
+    cout<< randomMove <<'\n'; // Print the random move
+    
+    return 0;
+    
+}
+
+
+
+//Notes//
+
+/* 
+-You cannot have function names random
+-If you want the code to pause and wait until user input then you do
+in.get(); 
+cout << '\n'; */
+
+
