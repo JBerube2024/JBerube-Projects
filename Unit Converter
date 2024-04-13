@@ -1,0 +1,197 @@
+/* Online C++ Compiler and Editor */
+#include <iostream>//This library provides functionalities for input and output operations, like printing to the console and reading user input.
+
+#include <chrono>//This library allows for measuring time durations and points in time.
+#include <thread>//This library allows for chrono to work
+using namespace std;
+
+
+
+
+int getunit(char& unit)
+{
+    cout << "Please select a starting unit (Type L for Length or W for Weight): ";
+    //Asks for number
+    cin>> unit;
+    return 0;
+
+}
+
+int getlengthunit()
+{
+    double solvelength(char unitL1, char unitL2);
+
+    char unitL1, unitL2;
+    cout<<"Initial Unit? (I,F,Y,M,C)";
+    cin>>unitL1;
+    cout<<"Convert Unit? (I,F,Y,M,C)";
+    cin>> unitL2;
+    return solvelength(unitL1, unitL2);
+}
+
+double solvelength(char unitL1, char unitL2)
+{
+
+    double length;
+    cout << "Enter the length: ";
+    cin >> length;
+
+    if (unitL1 == 'I') { // Convert from inches
+        if (unitL2 == 'I') // Convert to inches
+            return length;
+        else if (unitL2 == 'F') // Convert to feet
+            cout<< length / 12.0;
+        else if (unitL2 == 'Y') // Convert to yards
+            cout<< length / 36.0;
+        else if (unitL2 == 'M') // Convert to meters
+            return length * 0.0254;
+        else if (unitL2 == 'C') // Convert to centimeters
+            cout<< length * 2.54;
+    } else if (unitL1 == 'F') { // Convert from feet
+        if (unitL2 == 'I') // Convert to inches
+            cout<< length * 12.0;
+        else if (unitL2 == 'F') // Convert to feet
+            cout<< length;
+        else if (unitL2 == 'Y') // Convert to yards
+            cout<<length / 3.0;
+        else if (unitL2 == 'M') // Convert to meters
+            cout<< length * 0.3048;
+        else if (unitL2 == 'C') // Convert to centimeters
+            cout<< length * 30.48;
+    } else if (unitL1 == 'Y') { // Convert from yards
+        if (unitL2 == 'I') // Convert to inches
+            cout<< length * 36.0;
+        else if (unitL2 == 'F') // Convert to feet
+            cout<< length * 3.0;
+        else if (unitL2 == 'Y') // Convert to yards
+            cout<< length;
+        else if (unitL2 == 'M') // Convert to meters
+            cout<< length * 0.9144;
+        else if (unitL2 == 'C') // Convert to centimeters
+            cout<< length * 91.44;
+    } else if (unitL1 == 'M') { // Convert from meters
+        if (unitL2 == 'I') // Convert to inches
+            cout<< length / 0.0254;
+        else if (unitL2 == 'F') // Convert to feet
+            cout<< length / 0.3048;
+        else if (unitL2 == 'Y') // Convert to yards
+            cout<< length / 0.9144;
+        else if (unitL2 == 'M') // Convert to meters
+            cout<< length;
+        else if (unitL2 == 'C') // Convert to centimeters
+            cout<< length * 100.0;
+    } else if (unitL1 == 'C') { // Convert from centimeters
+        if (unitL2 == 'I') // Convert to inches
+            return length / 2.54;
+        else if (unitL2 == 'F') // Convert to feet
+            return length / 30.48;
+        else if (unitL2 == 'Y') // Convert to yards
+            cout<< length / 91.44;
+        else if (unitL2 == 'M') // Convert to meters
+            cout<< length / 100.0;
+        else if (unitL2 == 'C') // Convert to centimeters
+            cout<< length;
+
+        return 0;
+
+    }
+}
+    int getweightunit() {
+
+        double solveweight(char unitw1, char unitw2);
+
+        char unitw1, unitw2;
+        cout<<"Initial Unit? (P,O,T,G,K)";
+        cin>>unitw1;
+        cout<<"Convert Unit? (P,O,T,G,K)";
+        cin>> unitw2;
+        return solveweight(unitw1, unitw2);
+
+
+    }
+
+    double solveweight(char unitw1, char unitw2) {
+
+        double weight;
+        cout << "Enter the weight: ";
+        cin >> weight;
+
+        if (unitw1 == 'P') { // Convert from pounds
+            if (unitw2 == 'P') // Convert to pounds
+                return weight;
+            else if (unitw2 == 'O') // Convert to ounces
+                cout<< weight * 16.0;
+            else if (unitw2 == 'T') // Convert to Metric Tons
+                cout<< weight / 2205.0;
+            else if (unitw2 == 'G') // Convert to Grams
+                cout<< weight * 453.6;
+            else if (unitw2 == 'K') // Convert to Kilograms
+                cout<< weight /  2.205;
+        } else if (unitw1 == 'O') { // Convert from ounces
+            if (unitw2 == 'P') // Convert to pounds
+                cout<< weight / 16.0;
+            else if (unitw2 == 'F') // Convert to Ounces
+                cout<< weight;
+            else if (unitw2 == 'T') // Convert to Metric Tons
+                cout<< weight / 32000.0;
+            else if (unitw2 == 'G') // Convert to Grams
+                cout<< weight * 28.35;
+            else if (unitw2 == 'K') // Convert to Kilograms
+                cout<< weight / 35.274;
+        } else if (unitw1 == 'T') { // Convert from Tons
+            if (unitw2 == 'P') // Convert to pounds
+                cout<< weight * 2000.0;
+            else if (unitw2 == 'O') // Convert to Ounces
+                cout<< weight * 32000.0;
+            else if (unitw2 == 'T') // Convert to Tons
+                cout<< weight;
+            else if (unitw2 == 'G') // Convert to Grams
+                cout<< weight * 907200.0;
+            else if (unitw2 == 'K') // Convert to kilograms
+                cout<< weight * 907.2;
+        } else if (unitw1 == 'G') { // Convert from Grams
+            if (unitw2 == 'P') // Convert to pounds
+                cout<< weight / 453.6;
+            else if (unitw2 == 'O') // Convert to Ounces
+                cout<< weight / 28.35;
+            else if (unitw2 == 'T') // Convert to Tons
+                cout<< weight / 907200.0;
+            else if (unitw2 == 'G') // Convert to Grams
+                cout<< weight;
+            else if (unitw2 == 'K') // Convert to kilograms
+                cout<< weight /  1000.0;
+        } else if (unitw1 == 'K') { // Convert from Kilograms
+            if (unitw2 == 'P') // Convert to pounds
+                cout<< weight * 2.205;
+            else if (unitw2 == 'O') // Convert to Ounces
+                cout<< weight * 35.274;
+            else if (unitw2 == 'T') // Convert to Tons
+                cout<< weight / 907.2;
+            else if (unitw2 == 'G') // Convert to Grams
+                cout<< weight *  100.0;
+            else if (unitw2 == 'K') // Convert to kilograms
+                cout<< weight;
+
+            return 0;
+
+        }
+
+
+    }
+    int main() {
+        char unit;
+        getunit(unit);
+
+
+        if (unit == 'L') {
+            getlengthunit();
+
+        } else if (unit == 'W') {
+            getweightunit();
+        } else {
+            cout << "Invalid Input";
+
+        }
+
+        return 0;
+    }
