@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+#include <chrono>//This library allows for measuring time durations and points in time.
+#include <thread>//This library allows for chrono to work
+
+int main() {
+    
+    cout<<"Enter a number and I will tell you the larger of the two" << '\n';
+    std::this_thread::sleep_for(std::chrono::seconds(1));// Pause the program execution for 3 seconds.
+
+    cout<<"Number 1: ";
+    int num1 {};
+    cin>> num1;
+    cout<<"Number 2: ";
+    int num2 {};
+    cin>> num2;
+
+
+    // Using the conditional operator to find the maximum of two numbers
+    int max = (num1 > num2) ? num1 : num2;
+
+    std::cout << "The maximum of " << num1 << " and " << num2 << " is: " << max << std::endl;
+
+    return 0;
+}
