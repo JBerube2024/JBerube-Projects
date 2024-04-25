@@ -1,0 +1,57 @@
+/* Online C++ Compiler and Editor */
+#include <iostream>//This library provides functionalities for input and output operations, like printing to the console and reading user input.
+
+#include <chrono>//This library allows for measuring time durations and points in time.
+#include <thread>//This library allows for chrono to work
+using namespace std;
+
+
+/* The code block "getUserInputs" is for collecting the users information*/
+int getUserInputs(double& m, double& a, double& f)
+{
+
+    cout<<" Please enter Mass,Force or Acceleration"<<'\n';
+
+    std::this_thread::sleep_for(std::chrono::seconds(1));// Pause the program execution for 1 seconds.
+    cout<<" Whichever you wish to solve for input 0"<<'\n';
+    std::this_thread::sleep_for(std::chrono::seconds(2));// Pause the program execution for 2 seconds.
+
+    cout << "Please enter the mass: ";
+
+    cin >> m;
+    //Using "String" allows us to input stuff other than numbers
+    cout << "Please enter the acceleration: ";
+
+    cin >> a;
+
+    cout << "Please enter the force: ";
+
+    cin >> f;
+}
+//This section takes the users info and solves it
+int solve(double m, double a, double f)
+{
+    if (m == 0) {
+        cout<<"The answer MASS is =  " << ( f/a)<<'\n';
+    } else if (a == 0) {
+        cout<<"The answer ACCELERATION is =  " << ( f/m )<<'\n';
+    } else if (f == 0) {
+        cout<<"The answer FORCE is =  " << ( m * a)<<'\n';
+    } else {
+        cout<<"**!!Please Re-enter your Variables!!**";
+    }
+
+    return 0;
+}
+
+
+
+int main()
+{
+    double m, a, f;// Calls and Declares x and y
+
+    getUserInputs(m, a, f);//Calls function and integers
+    solve(m, a, f);//Calls function and integers
+
+    return 0;
+}
